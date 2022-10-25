@@ -8,7 +8,6 @@ public class Vector2dTest {
     Vector2d v2 = new Vector2d(1000000, 1000000);
     Vector2d v3 = new Vector2d(2000000, 2000000);
     Vector2d v4 = new Vector2d(2000000, 3000000);
-
     Vector2d v5 = new Vector2d(3000000, 2000000);
     Vector2d v6 = new Vector2d(3000000, 3000000);
     @Test
