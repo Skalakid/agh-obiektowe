@@ -4,14 +4,21 @@ import java.util.Arrays;
 
 public class World {
     public static void main(String[] args) {
-        Animal jez = new Animal();
-
-
         System.out.println("System wystartował");
-//        String[] moves = new String[]{"r", "r", "backward"};
-        runAnimal(jez, OptionsParser.parse(args));
+
+        String[] moves = new String[]{"f", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f", "f", "f", "f", "f", "f"};
+        MoveDirection[] directions = new OptionsParser().parse(args);
+        System.out.println( directions[0]);
+        IWorldMap map = new RectangularMap(10, 5);
+        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
         System.out.println("System zakończył działanie");
     }
+
+    // zad 10
+    // utworzyłbym ogolną osobną klasę Map w której przy każdym ruchu zapisywałbym położenie każdego utworzonego zwierzątka
+    // i w metodzie move odpowiednio bym sprawdzał
 
     public static void runAnimal(Animal animal, MoveDirection[] movesArray) {
         for(MoveDirection move: movesArray) {

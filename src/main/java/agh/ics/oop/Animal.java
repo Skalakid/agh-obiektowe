@@ -4,26 +4,44 @@ import java.util.Map;
 
 public class Animal {
 
-
+    private IWorldMap map;
     private MapDirection orientation;
     private Vector2d position;
+    private Integer boundValue = 4;
+
 
     public MapDirection getOrientation() {
         return orientation;
     }
-
     public Vector2d getPosition() {
         return position;
     }
 
-    public Animal() {
+    public Animal(IWorldMap map) {
+        this.map = map;
         this.orientation = MapDirection.NORTH;
         this.position = new Vector2d(2,2);
     }
 
+    public Animal(IWorldMap map, Vector2d initialPosition) {
+        this.map = map;
+        this.orientation = MapDirection.NORTH;
+        this.position = initialPosition;
+    }
+
     @Override
     public String toString() {
-        return "Position: " + this.position + ", orientation: " + this.orientation;
+        if(orientation == MapDirection.NORTH) {
+            return "N";
+        } else if(orientation == MapDirection.WEST) {
+            return "W";
+        }
+        else if(orientation == MapDirection.SOUTH) {
+            return "S";
+        }
+        else {
+            return "E";
+        }
     }
 
     public boolean isAt(Vector2d position) {
@@ -39,22 +57,22 @@ public class Animal {
 
         switch (this.orientation) {
             case NORTH:
-                if(0 <= this.position.y + move && this.position.y + move <= 4) {
+                if( map.canMoveTo(new Vector2d(this.position.x,this.position.y + move))) {
                     this.position = this.position.add(new Vector2d(0, move));
                 }
                 break;
             case EAST:
-                if(0 <= this.position.x + move && this.position.x + move <= 4) {
+                if(map.canMoveTo(new Vector2d(this.position.x + move, this.position.y))) {
                     this.position = this.position.add(new Vector2d(move, 0));
                 }
                 break;
             case SOUTH:
-                if(0 <= this.position.y - move && this.position.y - move <= 4) {
+                if(map.canMoveTo(new Vector2d(this.position.x,this.position.y - move))) {
                     this.position = this.position.add(new Vector2d(0, -move));
                 }
                 break;
             case WEST:
-                if(0 <= this.position.x - move && this.position.x - move <= 4) {
+                if(map.canMoveTo(new Vector2d(this.position.x - move, this.position.y))) {
                     this.position = this.position.add(new Vector2d(-move, 0));
                 }
                 break;
