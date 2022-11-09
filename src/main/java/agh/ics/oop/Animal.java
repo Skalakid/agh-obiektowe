@@ -1,13 +1,8 @@
 package agh.ics.oop;
 
-import java.util.Map;
-
-public class Animal {
-
+public class Animal extends AbstractMapElement {
     private IWorldMap map;
     private MapDirection orientation;
-    private Vector2d position;
-    private Integer boundValue = 4;
 
 
     public MapDirection getOrientation() {
