@@ -47,9 +47,9 @@ public class GrassFieldTest {
         Assertions.assertTrue(map.isOccupied(new Vector2d(0, 2)));
         Assertions.assertTrue(map.isOccupied(new Vector2d(2, 0)));
 
-        Assertions.assertFalse(map.isOccupied(new Vector2d(0, 0)));
-        map.place(new Animal(map, new Vector2d(0, 0)));
-        Assertions.assertTrue(map.isOccupied(new Vector2d(0, 0)));
+        Assertions.assertFalse(map.isOccupied(new Vector2d(20, 20)));
+        map.place(new Animal(map, new Vector2d(20, 20)));
+        Assertions.assertTrue(map.isOccupied(new Vector2d(20, 20)));
     }
 
 

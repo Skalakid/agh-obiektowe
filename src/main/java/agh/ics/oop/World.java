@@ -12,10 +12,6 @@ public class World {
         engine.run();
     }
 
-    // zad 10
-    // utworzyłbym ogolną osobną klasę Map w której przy każdym ruchu zapisywałbym położenie każdego utworzonego zwierzątka
-    // i w metodzie move odpowiednio bym sprawdzał
-
     public static void runAnimal(Animal animal, MoveDirection[] movesArray) {
         for(MoveDirection move: movesArray) {
             animal.move(move);
