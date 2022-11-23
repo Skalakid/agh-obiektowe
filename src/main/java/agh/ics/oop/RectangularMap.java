@@ -17,5 +17,10 @@ public class RectangularMap extends AbstractWorldMap implements IWorldMap {
                 position.precedes(topBoundary);
     }
 
+    @Override
+    public Vector2d[] getMinBorders() {
+        return new Vector2d[]{this.bottomBoundary, this.topBoundary};
+    }
+
 
 }

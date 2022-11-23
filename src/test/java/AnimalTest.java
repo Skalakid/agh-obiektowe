@@ -34,9 +34,15 @@ public class AnimalTest {
     public void testDataParse() {
         RectangularMap map = new RectangularMap(5,5);
         Animal animal = new Animal(map);
-        String[] moves = new String[]{"r", "right", "rfgs", "l", "left", "lolol", "f", "forward", "fiaias", "b", "backward", "bhsbdha"};
+        String[] moves = new String[]{"r", "right", "l", "left", "f", "forward", "b", "backward"};
         World.runAnimal(animal, OptionsParser.parse(moves));
         Assertions.assertEquals(animal.getPosition(), new Vector2d(2, 2));
+
+        String[] moves2 = new String[]{"f", "r", "b", "l", "asds"};
+        Assertions.assertThrows(IllegalArgumentException.class, () -> OptionsParser.parse(moves2));
+
+
+
     }
 
     @Test

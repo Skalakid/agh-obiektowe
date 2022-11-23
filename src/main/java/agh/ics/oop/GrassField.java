@@ -37,6 +37,11 @@ public class GrassField extends AbstractWorldMap implements IWorldMap {
         return true;
     }
 
+    @Override
+    public Vector2d[] getMinBorders() {
+        return this.mapBoundary.getMinBorders();
+    }
+
     public String toString() {
         return super.toString();
     }
