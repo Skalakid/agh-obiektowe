@@ -1,10 +1,10 @@
 package agh.ics.oop;
 
 public enum MapDirection {
-   NORTH,
-    SOUTH,
-    WEST,
-    EAST;
+        NORTH,
+        SOUTH,
+        WEST,
+        EAST;
 
     @Override
     public String toString() {

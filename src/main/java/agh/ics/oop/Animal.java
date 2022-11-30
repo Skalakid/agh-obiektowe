@@ -7,7 +7,7 @@ public class Animal extends AbstractMapElement {
     private MapDirection orientation;
 
     private final ArrayList<IPositionChangeObserver> observers = new ArrayList<>();
-
+    private String imagePath = "src/main/resources/up.png";
 
     public MapDirection getOrientation() {
         return orientation;
@@ -109,6 +109,28 @@ public class Animal extends AbstractMapElement {
         for (IPositionChangeObserver observer: this.observers) {
             observer.positionChanged(oldPosition, this.position);
         }
+    }
+    public String getImagePath() {
+
+        String path = "src/main/resources/";
+        switch(this.orientation) {
+            case EAST -> {
+                return path + "right.png";
+            }
+            case SOUTH -> {
+                return path + "down.png";
+            }
+            case WEST -> {
+                return path + "left.png";
+            }
+            default -> {
+                return path + "up.png";
+            }
+        }
+    }
+
+    public String getLabel() {
+        return this.toString() + ", " + this.position.toString();
     }
 
 }

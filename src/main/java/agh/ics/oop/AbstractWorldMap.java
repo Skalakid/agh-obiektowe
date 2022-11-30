@@ -48,6 +48,9 @@ public abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObse
         this.bottomBoundary = this.bottomBoundary.lowerLeft(borders[0]);
         this.topBoundary = this.topBoundary.upperRight(borders[1]);
 
+//        this.bottomBoundary = borders[0];
+//        this.topBoundary = borders[1];
+
         System.out.println(borders[1]);
 
         return new MapVisualizer(this).draw(bottomBoundary, topBoundary);
